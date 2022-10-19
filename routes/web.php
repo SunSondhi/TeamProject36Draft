@@ -21,13 +21,23 @@ Route::get('/', function () {
     return view("HomePage");
 })->name('HomePage');
 
-Route::get('products', function () {
+Route::get('products', [App\Http\Controllers\Controller::class, 'listProducts'] ,function () {
     return view("Products");
 })->name('Products');
 
-Route::get('basket', function () {
+Route::get('basket',[App\Http\Controllers\CartController::class, 'cartList'],function () {
     return view("Basket");
 })->name('Basket');
+
+//routes for products on cart
+Route::get('productlist', [App\Http\Controllers\Controller::class, 'listProducts'])->name('products.list');
+Route::get('cart', [App\Http\Controllers\CartController::class, 'cartList'])->name('cart.list');
+Route::post('cart', [App\Http\Controllers\CartController::class, 'addToCart'])->name('cart.store');
+Route::post('update-cart', [App\Http\Controllers\CartController::class, 'updateCart'])->name('cart.update');
+Route::post('remove', [App\Http\Controllers\CartController::class, 'removeCart'])->name('cart.remove');
+Route::post('clear', [App\Http\Controllers\CartController::class, 'clearAllCart'])->name('cart.clear');
+
+
 
 Route::get('aboutus', [App\Http\Controllers\Controller::class, 'search'], function () {
     return view("Aboutus");
@@ -114,13 +124,22 @@ Route::group([
         return view("HomePage");
     })->name('admin.HomePage');
 
-    Route::get('/products', function () {
+    Route::get('/products', [App\Http\Controllers\Controller::class, 'listProducts'],function () {
         return view("Products");
     })->name('admin.Products');
 
-    Route::get('/basket', function () {
+    Route::get('/basket', [App\Http\Controllers\CartController::class, 'cartList'],function () {
         return view("Basket");
     })->name('admin.Basket');
+
+    //same as up, but these are for the admin section
+    Route::get('productlist', [App\Http\Controllers\Controller::class, 'listProducts'])->name('admin.products.list');
+    Route::get('cart', [App\Http\Controllers\CartController::class, 'cartList'])->name('admin.cart.list');
+    Route::post('cart', [App\Http\Controllers\CartController::class, 'addToCart'])->name('admin.cart.store');
+    Route::post('update-cart', [App\Http\Controllers\CartController::class, 'updateCart'])->name('admin.cart.update');
+    Route::post('remove', [App\Http\Controllers\CartController::class, 'removeCart'])->name('admin.cart.remove');
+    Route::post('clear', [App\Http\Controllers\CartController::class, 'clearAllCart'])->name('admin.cart.clear');
+
 
     Route::get('/aboutus', [App\Http\Controllers\Controller::class, 'search'],function () {
         return view("Aboutus");

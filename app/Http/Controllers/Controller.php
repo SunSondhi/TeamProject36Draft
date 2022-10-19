@@ -44,4 +44,10 @@ class Controller extends BaseController
         //     }
         // }
     }
+
+
+    public function listProducts(Request $request){
+        $product = DB::table('products')->get();
+        return view('Products', ['product' => $product]);
+    }
 }
