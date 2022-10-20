@@ -100,26 +100,7 @@
                 </div>
             </div> -->
 
-            <!-- <div class="main-content">
-                <table class="table" id="table">
-                    <thead>
-                        <tr>
-                            <th>name</th>
-                            <th>description</th>
-                            <th>price</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($product as $pr)
-                        <tr>
-                            <td> {{$pr->name}} </td>
-                            <td> {{$pr->description }} </td>
-                            <td> {{$pr->price }} </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div> -->
+      
 
             <div>
                 <div class="card" style="width: 18rem;">
