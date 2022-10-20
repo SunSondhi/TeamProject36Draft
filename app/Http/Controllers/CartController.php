@@ -19,7 +19,7 @@ class CartController extends Controller
 
     public function addToCart(Request $request)
     {
-        DB::table('products')::add([
+        DB::table('products')->add([
             'id' => $request->id,
             'name' => $request->name,
             'price' => $request->price,
@@ -35,7 +35,7 @@ class CartController extends Controller
 
     public function updateCart(Request $request)
     {
-        DB::table('products')::update(
+        DB::table('products')->update(
             $request->id,
             [
                 'quantity' => [
@@ -52,7 +52,7 @@ class CartController extends Controller
 
     public function removeCart(Request $request)
     {
-        DB::table('products')::remove($request->id);
+        DB::table('products')->remove($request->id);
         session()->flash('success', 'Item Cart Remove Successfully !');
 
         return redirect()->route('cart.list');
@@ -60,7 +60,7 @@ class CartController extends Controller
 
     public function clearAllCart()
     {
-        DB::table('products')::clear();
+        DB::table('products')->clear();
 
         session()->flash('success', 'All Item Cart Clear Successfully !');
 
