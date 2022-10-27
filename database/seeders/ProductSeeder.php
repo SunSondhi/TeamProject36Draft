@@ -15,18 +15,36 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('products')->insert([
-            'name' => 'Watch',
-            'price' => 250,
-            'description' => 'Good watch',
-            'image' => 'images\iphone.jpg'
-        ]);
-        DB::table('products')->insert([
-            'name' => 'Bag',
-            'price' => 350,
-            'description' => 'Good Bag',
-            'image' => 'https://images.unsplash.com/photo-1491637639811-60e2756cc1c7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=669&q=80'
-        ]);
+        $products = [
+            [
+                'name' => 'PHP',
+                'image' => 'https://dummyimage.com/200x200/4D588E/fff&text=PHP',
+                'price' => 120,
+                'description' => 'PHP Language'
+            ],
+            [
+                'name' => 'Laravel',
+                'image' => 'https://dummyimage.com/200x200/E83A2D/fff&text=Laravel',
+                'price' => 220,
+                'description' => 'Laravel freamwork'
+            ],
+            [
+                'name' => 'Python',
+                'image' => 'https://dummyimage.com/200x200/000/00ff04&text=python',
+                'price' => 300,
+                'description' => 'Python Language'
+            ],
+            [
+                'name' => 'Codeigniter',
+                'image' => 'https://dummyimage.com/200x200/F03B06/000&text=CI',
+                'price' => 110,
+                'description' => 'Codeigniter freamwork'
+            ]
+        ];
+
+        foreach ($products as $key => $value) {
+            Product::create($value);
+        }
         
     }
 }
