@@ -101,10 +101,10 @@
             </div> -->
 
 
-            <div>
+            <!-- <div>
                 <div class="card" style="width: 18rem;">
                     @foreach ($product as $pr)
-                    <img height="auto" src="{{asset('images/'.$pr->image)}}">
+                    <img src="{{url('images/'.$pr->image)}}" />
                     <title>
                         <td> {{$pr->name}} </td>
                     </title>
@@ -113,27 +113,42 @@
                         <h5 class="card-title">Card title</h5>
                         <p class="card-text">{{$pr->description }}</p>
                         <p class="card-text">{{$pr->price }} </p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
 
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <form action="{{ route('HomePage') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <input type="hidden" value="{{ $product->get('id') }}" name="id">
+                            <input type="hidden" value="{{ $product->get('name') }}" name="name">
+                            <input type="hidden" value="{{ $product->get('price')}}" name="price">
+                            <input type="hidden" value="1" name="quantity">
+                            <button href="#" class="btn btn-primary">Add To Cart</button>
+                        </form>
                     </div>
                     @endforeach
                 </div>
+            </div> -->
+
+
+
+
+
+            <div class="row">
+                @foreach($product as $product)
+                <div class="col-xs-18 col-sm-6 col-md-3">
+                    <div class="img_thumbnail">
+                        <img src="{{ $product->image }}" alt="">
+                        <img src="{{url('images/'.$pr->image)}}" />
+                        <div class="caption">
+                            <h4>{{ $product->name }}</h4>
+                            <p>{{ $product->description }}</p>
+                            <p><strong>Price: </strong> {{ $product->price }}$</p>
+                            <p class="btn-holder"><a href="{{ route('add_to_cart', $product->id) }}" class="btn btn-success btn-block text-center" role="button">Add to cart</a> </p>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
             </div>
 
-            <div class="px-5 py-3">
-                <h3 class="text-gray-700 uppercase">{{ $product->get('name') }}</h3>
-                <span class="mt-2 text-gray-500">{{ $product->get('price') }}</span>
-                <img height="auto" src="{{asset('images/'.$pr->image)}}">
-                <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    <input type="hidden" value="{{ $product->get('id') }}" name="id">
-                    <input type="hidden" value="{{ $product->get('name') }}" name="name">
-                    <input type="hidden" value="{{ $product->get('price')}}" name="price">
-                    <input type="hidden" value="{{ $product->get('image') }}" name="image">
-                    <input type="hidden" value="1" name="quantity">
-                    <button class="px-4 py-2 text-white bg-blue-800 rounded">Add To Cart</button>
-                </form>
-            </div>
 
 
         </div>
