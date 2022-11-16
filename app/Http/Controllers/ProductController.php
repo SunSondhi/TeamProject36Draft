@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Product; 
+use App\Models\Product;
+use App\Models\Basket;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -15,50 +17,57 @@ class ProductController extends Controller
         return view('products', compact('products'));
     }
 
+    public function viewAll(){
+       $items =  DB::table('basket')->get();
+
+       foreach($items as $item){
+        return view('Basket', compact('items'));
+       }
+    }
+
+
     public function cart()
     {
         return view('cart');
     }
-    public function addToCart($id)
+
+
+    public function addToCart(Request $request, $id)
     {
         $product = Product::findOrFail($id);
 
-        $cart = session()->get('cart', []);
-
-        if(isset($cart[$id])) {
-            $cart[$id]['quantity']++;
-        }  else {
-            $cart[$id] = [
+        
+     
+        DB::table('basket')->insert([
                 "name" => $product->name,
                 "image" => $product->image,
                 "price" => $product->price,
-                "quantity" => 1
-            ];
-        }
-
-        session()->put('cart', $cart);
-        return redirect()->back()->with('success', 'Product add to cart successfully!');
+                "description" => $product->description
+        ]);
+        
+        return view('basket');
     }
+
+
+
 
     public function update(Request $request)
     {
-        if($request->id && $request->quantity){
-            $cart = session()->get('cart');
+        if($request->id){
+            $cart = Basket::all();
             $cart[$request->id]["quantity"] = $request->quantity;
-            session()->put('cart', $cart);
-            session()->flash('success', 'Cart successfully updated!');
+            DB::table('basket')->put('cart', $cart);
         }
     }
 
     public function remove(Request $request)
     {
         if($request->id) {
-            $cart = session()->delete('cart');
+            $cart = DB::table('basket')->delete('cart');
             if(isset($cart[$request->id])) {
                 unset($cart[$request->id]);
-                session()->put('cart', $cart);
+                DB::table('basket')->put('cart', $cart);
             }
-            session()->flash('success', 'Product successfully removed!');
         }
     }
 }
