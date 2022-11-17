@@ -36,14 +36,15 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($id);
 
-        
-     
+
+
         DB::table('basket')->insert([
                 "name" => $product->name,
                 "image" => $product->image,
                 "price" => $product->price,
                 "description" => $product->description
         ]);
+
         
         return view('basket');
     }
@@ -62,12 +63,6 @@ class ProductController extends Controller
 
     public function remove(Request $request)
     {
-        if($request->id) {
-            $cart = DB::table('basket')->delete('cart');
-            if(isset($cart[$request->id])) {
-                unset($cart[$request->id]);
-                DB::table('basket')->put('cart', $cart);
-            }
-        }
+     
     }
 }
