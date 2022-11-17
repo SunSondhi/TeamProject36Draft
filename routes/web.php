@@ -26,7 +26,7 @@ Route::get('products', [App\Http\Controllers\Controller::class, 'listProducts'] 
     return view("Products");
 })->name('Products');
 
-Route::get('basket',function () {
+Route::get('basket', [ProductController::class, 'viewAll'],function () {
     return view("Basket");
 })->name('Basket');
 
