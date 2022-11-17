@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-@section('title','| Company Name')
+@section('title','| Pegasus Jewellery')
 @include('layouts/head')
 
 <body>
