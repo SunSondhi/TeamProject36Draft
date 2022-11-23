@@ -4,7 +4,7 @@
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
         <a href="#" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
             <!-- add the logo here-->
-            <img width="100%" height="100px" src="">
+            <img width="100%" height="100px" src="images/logo.png">
         </a>
 
         <?php

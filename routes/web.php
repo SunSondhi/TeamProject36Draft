@@ -32,7 +32,7 @@ Route::get('basket', [ProductController::class, 'viewAll'],function () {
 
 
 Route::get('HomePage', [ProductController::class, 'index']);
-Route::get('cart', [ProductController::class, 'cart'])->name('cart');
+Route::get('Basket', [ProductController::class, 'cart'])->name('cart');
 Route::get('add-to-cart/{id}', [ProductController::class, 'addToCart'])->name('add_to_cart');
 Route::patch('update-cart', [ProductController::class, 'update'])->name('update_cart');
 Route::delete('remove-from-cart', [ProductController::class, 'remove'])->name('remove_from_cart');
@@ -63,7 +63,6 @@ Route::get('register', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 
 Route::group([
     'namespace' => 'admin',

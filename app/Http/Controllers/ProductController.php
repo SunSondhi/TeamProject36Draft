@@ -13,8 +13,7 @@ class ProductController extends Controller
 
     public function index()
     {
-        $products = Product::all();
-        return view('products', compact('products'));
+        return view('products');
     }
 
     public function viewAll(){
@@ -28,11 +27,11 @@ class ProductController extends Controller
 
     public function cart()
     {
-        return view('cart');
+        return view('basket');
     }
 
 
-    public function addToCart(Request $request, $id)
+    public function addToCart($id)
     {
         $product = Product::findOrFail($id);
 
@@ -46,28 +45,63 @@ class ProductController extends Controller
         ]);
         
         return view('basket');
+
+        $cart = session()->get('basket');
+
+        //if cart is empty then this is the first product
+        if (!$cart) {
+            $cart = [
+                $id => [
+                    "name" => $product->name,
+                    "quantity" => 1,
+                    "price" => $product->price,
+                    "image" => $product->image
+                ]
+                
+            ];
+
+            session()->put('basket', $cart);
+
+            return redirect()->back()->with('success', 'Product added to cart successfully!');
+
+            //if cart not empty then check if this products exists, if yes then increment quantity
+            if(isset($cart[$id])) {
+                $cart[$id]['quantity']++;
+                session()->put('basket', $cart);
+                return redirect()->back()->with('success', 'Product added to cart successfully!');
+            }
+            // if item not exist in cart then add to cart with quantity = 1
+            $cart[$id] = [
+                "name" => $product->name,
+                "quantity" => 1,
+                "price" => $product->price,
+                "photo" => $product->photo
+            ];
+            session()->put('basket', $cart);
+            return redirect()->back()->with('success', 'Product added to cart successfully!');
+        }
+        
     }
-
-
-
 
     public function update(Request $request)
     {
-        if($request->id){
-            $cart = Basket::all();
+        if($request->id and $request->quantity)
+        {
+            $cart = session()->get('basket');
             $cart[$request->id]["quantity"] = $request->quantity;
-            DB::table('basket')->put('cart', $cart);
+            session()->put('basket', $cart);
+            session()->flash('success', 'Cart updated successfully');
         }
     }
-
     public function remove(Request $request)
     {
         if($request->id) {
-            $cart = DB::table('basket')->delete('cart');
+            $cart = session()->get('basket');
             if(isset($cart[$request->id])) {
                 unset($cart[$request->id]);
-                DB::table('basket')->put('cart', $cart);
+                session()->put('basket', $cart);
             }
+            session()->flash('success', 'Product removed successfully');
         }
     }
 }
