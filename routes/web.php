@@ -4,7 +4,7 @@ use App\Http\Middleware\AdminMiddleWare;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ProductController;
-
+use App\Http\Controllers\CartController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,20 +26,20 @@ Route::get('products', [App\Http\Controllers\Controller::class, 'listProducts'] 
     return view("Products");
 })->name('Products');
 
-Route::get('basket', [ProductController::class, 'viewAll'],function () {
+Route::get('basket', [ProductController::class, 'productList'],function () {
     return view("Basket");
 })->name('Basket');
 
 
-Route::get('HomePage', [ProductController::class, 'index']);
-Route::get('cart', [ProductController::class, 'cart'])->name('cart');
-Route::get('add-to-cart/{id}', [ProductController::class, 'addToCart'])->name('add_to_cart');
-Route::patch('update-cart', [ProductController::class, 'update'])->name('update_cart');
-Route::delete('remove-from-cart', [ProductController::class, 'remove'])->name('remove_from_cart');
+Route::get('HomePage', [ProductController::class, 'productList'])->name('products.list');;
+Route::get('cart', [CartController::class, 'cartList'])->name('cart.list');
+Route::post('cart', [CartController::class, 'addToCart'])->name('cart.store');
+Route::post('update-cart', [CartController::class, 'updateCart'])->name('cart.update');
+Route::post('remove', [CartController::class, 'removeCart'])->name('cart.remove');
+Route::post('clear', [CartController::class, 'clearAllCart'])->name('cart.clear');
 
 
-
-Route::get('aboutus', [App\Http\Controllers\Controller::class, 'search'], function () {
+Route::get('aboutus', function () {
     return view("Aboutus");
 })->name('Aboutus');
 
@@ -71,7 +71,8 @@ Route::group([
     'middleware' => 'auth',
     'middleware' => 'isAdmin',
 ], function () {
-    Route::get('adminhome', [App\Http\Controllers\HomeController::class, 'admin_home'])->name('admin.adminhome')->middleware('isAdmin');
+    Route::get('adminhome',[App\Http\Controllers\Controller::class, 'search'],[App\Http\Controllers\HomeController::class, 'admin_home'])->name('admin.adminhome')->middleware('isAdmin');
+
 
     Route::get('/', function () {
         return view("HomePage");
@@ -85,7 +86,7 @@ Route::group([
         return view("Basket");
     })->name('admin.Basket');
 
-    Route::get('/aboutus', [App\Http\Controllers\Controller::class, 'search'],function () {
+    Route::get('/aboutus',function () {
         return view("Aboutus");
     })->name('admin.Aboutus');
 

@@ -13,7 +13,7 @@
                         {{ session('status') }}
                     </div>
                     @endif
-                    
+
                     {{ __('You are logged in! as Admin') }}
                 </div>
             </div>
@@ -28,15 +28,44 @@
     </a>
 
     <div class="dropdown-menu dropdown-menu" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-            {{ __('Logout') }}
-        </a>
+
 
         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
             @csrf
+
         </form>
+
+        <button class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+            {{ __('Logout') }}
+        </button>
     </div>
 </li>
+
+
+<!-- <div class="main-content">
+    <table class="table" id="table">
+        <thead>
+            <tr>
+                <th>name</th>
+                <th>email</th>
+                <th>role</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($user as $us)
+            <tr>
+                <td> {{$us->name}} </td>
+                <td> {{$us->email }} </td>
+                <td> {{$us->role }} </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+    <div class="sections">
+        <a href="{{ redirect()->back()->getTargetUrl() }}"><button>Go back</button></a>
+    </div>
+</div> -->
+
 
 
 @endsection

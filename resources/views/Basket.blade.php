@@ -7,94 +7,98 @@
 <body>
     @include('layouts/nav')
     <h1>Basket Page</h1>
+
+
+    <x name="header">
+        <h2 class="font-semibold text-xl text-gray-800">
+            {{ __('Cart') }}
+        </h2>
+    </x>
     <main class="my-8">
+        <div class="container px-6 mx-auto">
+            <div class="flex justify-center my-6">
+                <div class="flex flex-col w-full p-8 text-gray-800 bg-white shadow-lg pin-r pin-y md:w-4/5 lg:w-4/5">
+                    @if ($message = Session::get('success'))
+                    <div class="p-4 mb-3 bg-green-400 rounded">
+                        <p class="text-green-800">{{ $message }}</p>
+                    </div>
+                    @endif
+                    <h3 class="text-3xl font-bold">Carts</h3>
+                    <div class="flex-1">
+                        <table class="w-full text-sm lg:text-base" cellspacing="0">
+                            <thead>
+                                <tr class="h-12 uppercase">
+                                    <th class="hidden md:table-cell"></th>
+                                    <th class="text-left">Name</th>
+                                    <th class="pl-5 text-left lg:text-right lg:pl-0">
+                                        <span class="lg:hidden" title="Quantity">Qtd</span>
+                                        <span class="hidden lg:inline">Quantity</span>
+                                    </th>
+                                    <th class="hidden text-right md:table-cell"> price</th>
+                                    <th class="hidden text-right md:table-cell"> Remove </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php 
+                                foreach ($cartItems as $cartItems):?>
+                                <tr>
+                                    <td class="hidden pb-4 md:table-cell">
+                                        <a href="#">
+                                            <img src="{{ $cartItems->attributes->image }}" class="w-20 rounded" alt="Thumbnail">
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="#">
+                                            <p class="mb-2 md:ml-4 text-purple-600 font-bold">{{ $cartItems->name }}</p>
 
+                                        </a>
+                                    </td>
+                                    <td class="justify-center mt-6 md:justify-end md:flex">
+                                        <div class="h-10 w-28">
+                                            <div class="relative flex flex-row w-full h-8">
 
+                                                <form action="{{ route('cart.update') }}" method="POST">
+                                                    @csrf
+                                                    <input type="hidden" name="id" value="{{ $cartItems->id}}">
+                                                    <button class="px-4 mt-1 py-1.5 text-sm rounded rounded shadow text-violet-100 bg-violet-500">Update</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="hidden text-right md:table-cell">
+                                        <span class="text-sm font-medium lg:text-base">
+                                            ${{ $cartItems->price }}
+                                        </span>
+                                    </td>
+                                    <td class="hidden text-right md:table-cell">
+                                        <form action="{{ route('cart.remove') }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" value="{{ $cartItems->id }}" name="id">
+                                            <button class="px-4 py-2 text-white bg-red-600 shadow rounded-full">x</button>
+                                        </form>
 
-        <table id="cart" class="table table-hover table-condensed">
-            <thead>
-                <tr>
-                    <th style="width:50%">Product</th>
-                    <th style="width:10%">Price</th>
-                    <th style="width:8%">Quantity</th>
-                    <th style="width:22%" class="text-center">Subtotal</th>
-                    <th style="width:10%"></th>
-                </tr>
-            </thead>
-            <tbody>
-                @php $total = 0 @endphp
-                @if(session('cart'))
-                @foreach(session('cart') as $id => $details)
-                @php $total += $details['price'] * $details['quantity'] @endphp
-                <tr data-id="{{ $id }}">
-                    <td data-th="Product">
-                        <div class="row">
-                            <div class="col-sm-3 hidden-xs"><img src="{{ $details['image'] }}" width="100" height="100" class="img-responsive" /></div>
-                            <div class="col-sm-9">
-                                <h4 class="nomargin">{{ $details['name'] }}</h4>
-                            </div>
+                                    </td>
+                                </tr>
+                                @endforeach
+
+                            </tbody>
+                        </table>
+                        <div>
+                            <h1> Total: ${{ Cart::getTotal() }} </h1>
                         </div>
-                    </td>
-                    <td data-th="Price">${{ $details['price'] }}</td>
-                    <td data-th="Quantity">
-                        <input type="number" value="{{ $details['quantity'] }}" class="form-control quantity cart_update" min="1" />
-                    </td>
-                    <td data-th="Subtotal" class="text-center">${{ $details['price'] * $details['quantity'] }}</td>
-
-                    <td class="actions" data-th="">
-                        @csrf
-                        <a href="{{ route('remove_from_cart') }}"><button class="btn btn-danger btn-sm cart_remove"><i class="fa fa-trash-o"></i> Delete</button></a>
-                    </td>
-                </tr>
-                @endforeach
-                @endif
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="5" class="text-right">
-                        <h3><strong>Total ${{ $total }}</strong></h3>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="5" class="text-right">
-                        <a href="{{ url('/') }}" class="btn btn-danger"> <i class="fa fa-arrow-left"></i> Continue Shopping</a>
-                        <button class="btn btn-success"><i class="fa fa-money"></i> Checkout</button>
-                    </td>
-                </tr>
-            </tfoot>
-        </table>
+                        <div>
+                            <form action="{{ route('cart.clear') }}" method="POST">
+                                @csrf
+                                <button class="px-6 py-2 text-sm  rounded shadow text-red-100 bg-red-500">Clear Carts</button>
+                            </form>
+                        </div>
 
 
-
-        <table>
-            <thead>
-                <tr>
-
-                </tr>
-            </thead>
-            <tbody>
-                @foreach( $items as $items)
-                <tr>
-                    <td> {{$items->name}} </td>
-                    <td> {{$items->price }} </td>
-                    <td>
-                        <div class="col-sm-3 hidden-xs"><img src="{{ $items->image }}" width="100" height="100" class="img-responsive" /></div>
-                    </td>
-                    
-                </tr>
-                @endforeach
-            </tbody>
-            <tfoot>
-                <tr>
-                    <h3><strong>Total ${{ $total }}</strong></h3>
-                </tr>
-            </tfoot>
-
-        </table>
-
-
-
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
-</body>
 
+</body>
 </html>
