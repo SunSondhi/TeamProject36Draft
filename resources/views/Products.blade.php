@@ -8,8 +8,12 @@
     @include('layouts/nav')
 
 
+    <div class="intro-page" id="products-page">
+        <h1>Products Page</h1>
+    </div>
 
-    <h1>Products Page</h1>
+
+
     <?php
 
     use Illuminate\Support\Facades\Route;
@@ -22,37 +26,33 @@
 
     <div class="container">
         <div class="flex-container">
-
-
-            <div class="row">
-                @foreach($product as $products)
-                <div class="col-xs-18 col-sm-6 col-md-3">
-                    <div class="img_thumbnail">
-                        <img src="{{ $products->image }}" alt="">
-                        <div class="caption">
-                            <h4>{{ $products->name }}</h4>
-                            <p>{{ $products->description }}</p>
-                            <p><strong>Price: </strong> {{ $products->price }}$</p>
-                        
-                        <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+            @foreach($product as $products)
+            <div class="card2">
+                <div>
+                    <img src="{{ $products->image }}" alt="">
+                </div>
+                <div>
+                    <h4>{{ $products->name }}</h4>
+                    <p>{{ $products->description }}</p>
+                    <p><strong>Price: </strong> {{ $products->price }}$</p>
+                </div>
+                <div>
+                    <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" value="{{ $products->id }}" name="id">
                         <input type="hidden" value="{{ $products->name }}" name="name">
                         <input type="hidden" value="{{ $products->price }}" name="price">
-                        <input type="hidden" value="{{ $products->image }}"  name="image">
+                        <input type="hidden" value="{{ $products->image }}" name="image">
                         <button class="px-4 py-2 text-white bg-blue-800 rounded">Add To Cart</button>
                     </form>
-                        
-                        </div>
-                    </div>
                 </div>
-                @endforeach
             </div>
-
-
-
+            @endforeach
         </div>
     </div>
+
+
+
     @include('layouts/footer')
 
 </body>

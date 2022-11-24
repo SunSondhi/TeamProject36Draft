@@ -68,20 +68,28 @@
 
     <div class="flex-container">
         <div class="card2">
-            <img src="{{asset('images/rings.png')}}" />
-            <h5>Rings</h5>
+            <img class="main-homepage" src="{{asset('images/rings.png')}}" />
+            <a href="#">
+                <h5 class="nav-link">Rings</h5>
+            </a>
         </div>
         <div class="card2">
             <img src="{{asset('images/necklace.png')}}" />
-            <h5>Necklaces</h5>
+            <a href="#">
+                <h5 class="nav-link">Necklaces</h5>
+            </a>
         </div>
         <div class="card2">
             <img src="{{asset('images/earring.png')}}" />
-            <h5>Earrings</h5>
+            <a href="#">
+                <h5 class="nav-link">Earrings</h5>
+            </a>
         </div>
         <div class="card2">
             <img src="{{asset('images/bracelet.png')}}" />
-            <h5>Charms & Bracelets</h5>
+            <a href="#">
+                <h5 class="nav-link">Charms & Bracelets</h5>
+            </a>
         </div>
     </div>
 

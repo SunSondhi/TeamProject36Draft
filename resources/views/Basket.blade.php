@@ -40,7 +40,7 @@
                             </thead>
                             <tbody>
                                 <?php 
-                                foreach ($cartItems as $cartItems):?>
+                                foreach($cartItems as $cartItems):?>
                                 <tr>
                                     <td class="hidden pb-4 md:table-cell">
                                         <a href="#">
@@ -99,6 +99,8 @@
             </div>
         </div>
     </main>
+
+    @include('layouts/footer')
 
 </body>
 </html>
