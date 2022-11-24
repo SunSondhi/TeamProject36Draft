@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-@section('title','| Producst')
+@section('title','| Products')
 @include('layouts/head')
 
 <body>
