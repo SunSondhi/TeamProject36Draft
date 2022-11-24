@@ -27,7 +27,7 @@ class Controller extends BaseController
 
         foreach ($user as $users) {
             if ($users !=  Auth::user()) {
-                return view('aboutus', ['user' => $user]);
+                return view('adminhome', ['user' => $user]);
 
             } else {
                 echo 'ther has been an error with the query';
