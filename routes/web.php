@@ -33,9 +33,9 @@ Route::get('basket', [ProductController::class, 'viewAll'],function () {
 
 Route::get('HomePage', [ProductController::class, 'index']);
 Route::get('Basket', [ProductController::class, 'cart'])->name('cart');
-Route::get('add-to-cart/{id}', [ProductController::class, 'addToCart'])->name('add_to_cart');
-Route::patch('update-cart', [ProductController::class, 'update'])->name('update_cart');
-Route::delete('remove-from-cart', [ProductController::class, 'remove'])->name('remove_from_cart');
+Route::get('add-to-cart/{id}', [ProductController::class, 'addToCart'])->name('add-to-cart');
+Route::patch('update-cart/{request}', [ProductController::class, 'update'])->name('update-cart');
+Route::delete('remove-from-cart/{request}', [ProductController::class, 'remove'])->name('remove-from-cart');
 
 
 
