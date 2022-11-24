@@ -15,10 +15,7 @@
 
 
     <div class="main-container">
-        <div>
-            <h1>HomePage</h1>
-        </div>
-
+       
         @if(Route::is('admin/'))
         <h1>admin Homepage</h1>
         @endif
