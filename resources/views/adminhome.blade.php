@@ -80,7 +80,7 @@
 <th scope="row">Chelsea</th>
 <td> 7</td>
 <td> 0</td>
-</tr>
+</tr> 
 
 </table>
 
