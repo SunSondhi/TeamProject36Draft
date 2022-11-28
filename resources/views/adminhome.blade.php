@@ -40,6 +40,49 @@
         </button>
     </div>
 </li>
+<table>
+<caption> Users </caption>
+<tr> 
+<th scope="col">Users</th>
+<th scope="col">UserID</th>
+<th scope="col">AmountOfOrders</th>
+</tr>
+
+<tr> <th scope="row">Sunny</th>
+<td> 1</td>
+<td> 2</td>
+</tr>
+
+<tr> <th scope="row">Ali</th>
+<td> 2</td>
+<td> 1</td>
+</tr>
+
+<tr> <th scope="row">Salma</th>
+<td> 3</td>
+<td> 0</td>
+</tr>
+
+<tr> <th scope="row">Raheel</th>
+<td>4</td>
+<td>1</td>
+</tr>
+
+<tr> <th scope="row">Kevin</th>
+<td> 5</td>
+<td> 0</td>
+</tr>
+
+<tr> <th scope="row">Qasim</th>
+<td> 6</td>
+<td> 1</td>
+</tr> 
+<th scope="row">Chelsea</th>
+<td> 7</td>
+<td> 0</td>
+</tr>
+
+</table>
 
 
 <!-- <div class="main-content">

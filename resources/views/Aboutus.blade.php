@@ -23,8 +23,6 @@
  </p2>
  <br></br>
 
-
-
 <p3> We make and sell jewllery for any occasion, whether its that time where you need to buy a ring for that special someone, or just a loving gift
     to someone or even a treat for yourself pegasus jewllery is here to help and will help. At pegasus we pride ourslef on proffesisonalism and so we put our full efforts
     into making our customers happy, this is why we can assure you that you will never leave dissapointed.
