@@ -4,6 +4,7 @@
 
 }
 
+
 .nav-link {
   font-size: 30px;
   color: white;
@@ -263,6 +264,7 @@ img {
 footer {
   position: relative;
   bottom: 0px;
+  margin-top: auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;

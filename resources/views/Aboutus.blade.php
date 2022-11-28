@@ -22,6 +22,7 @@
  </p2>
  <br></br>
 
+<<<<<<< HEAD
 <p3> We make and sell jewellery for any occasion, whether it’s that time where you need to buy a ring for that special someone, or just a loving gift
     to someone or even a treat for yourself Pegasus jewellery is here to help and will help. At Pegasus we pride ourselves on professionalism and so we put our full efforts
     into making our customers happy, therefore we can assure you that you will never leave disappointed.
@@ -30,6 +31,9 @@
    
 @include('layouts/footer')
 
+=======
+    @include('layouts/footer')
+>>>>>>> c6e5dbe40247817c64b894a31b742da40a3237a6
 </body>
 
 </html>

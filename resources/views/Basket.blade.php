@@ -96,6 +96,18 @@
                             </form>
                         </div>
 
+                        <div>
+                            <form action="{{ route('storePrevOrders') }}" method="POST">
+                                @csrf
+                                    <input type="hidden" value="{{ Cart::getContent('name') }}" name="name">
+                                  
+                                    <input type="hidden" value="{{ Cart::getContent('price') }}" name="price">
+                                    <input type="hidden" value="{{ Cart::getContent('image') }}" name="image">
+                                    <input type="hidden" value="{{ Cart::getContent('quantity') }}" name="image">
+                                <button class="px-6 py-2 text-sm  rounded shadow text-red-100 bg-green-500">Checkout</button>
+                            </form>
+                        </div>
+
 
                     </div>
                 </div>
