@@ -6,7 +6,10 @@
 
 <body>
     @include('layouts/nav')
-    <h1>Basket Page</h1>
+    <div class="intro-page" id="products-page">
+        <h1>Basket Page</h1>
+    </div>
+    
 
 
     <x name="header">
@@ -40,7 +43,7 @@
                             </thead>
                             <tbody>
                                 <?php 
-                                foreach ($cartItems as $cartItems):?>
+                                foreach($cartItems as $cartItems):?>
                                 <tr>
                                     <td class="hidden pb-4 md:table-cell">
                                         <a href="#">
@@ -99,6 +102,8 @@
             </div>
         </div>
     </main>
+
+    @include('layouts/footer')
 
 </body>
 </html>

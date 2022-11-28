@@ -4,10 +4,7 @@
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
         <a href="#" id="logo-txt" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
             <!-- add the logo here-->
-
-
             Pegasus Jewellery
-
             <!-- <img class="logo" width="100%" height="200px" src="{{ asset('images\pegasusLogo.png')}}"> -->
         </a>
 
