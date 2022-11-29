@@ -17,29 +17,72 @@ class ProductSeeder extends Seeder
     {
         $products = [
             [
-                'name' => 'PHP',
-                'image' => 'https://dummyimage.com/200x200/4D588E/fff&text=PHP',
-                'price' => 120,
-                'description' => 'PHP Language'
+                'name' => 'Red Ring',
+                'image' => 'images\ring3.jpg',
+                'price' => 129,
+                'description' => 'Ring'
             ],
             [
-                'name' => 'Laravel',
-                'image' => 'https://dummyimage.com/200x200/E83A2D/fff&text=Laravel',
-                'price' => 220,
-                'description' => 'Laravel freamwork'
+                'name' => 'Lover Bracelet',
+                'image' => 'images\bracelet1.jpg',
+                'price' => 29,
+                'description' => 'Bracelet'
             ],
             [
-                'name' => 'Python',
-                'image' => 'https://dummyimage.com/200x200/000/00ff04&text=python',
-                'price' => 300,
-                'description' => 'Python Language'
+                'name' => 'Golden Earrings',
+                'image' => 'images\earrings1.jpg',
+                'price' => 399,
+                'description' => 'Earrings'
             ],
             [
-                'name' => 'Codeigniter',
-                'image' => 'https://dummyimage.com/200x200/F03B06/000&text=CI',
-                'price' => 110,
-                'description' => 'Codeigniter freamwork'
+                'name' => 'Boys Chain',
+                'image' => 'images\chain1.jpg',
+                'price' => 19,
+                'description' => 'Chain'
+            ],
+            [
+                'name' => 'Glitter Ring',
+                'image' => 'images\ring2.jpg',
+                'price' => 119,
+                'description' => 'Ring'
+            ],
+            [
+                'name' => 'Golden Bracelet',
+                'image' => 'images\bracelet2.jpg',
+                'price' => 450,
+                'description' => 'Bracelet'
+            ],
+            [
+                'name' => 'ButterFly Chain',
+                'image' => 'images\chain2.jpg',
+                'price' => 50,
+                'description' => 'Chain'
+            ],
+            [
+                'name' => 'Platinum Chain',
+                'image' => 'images\platinumchain.jpg',
+                'price' => 4550,
+                'description' => 'Chain'
+            ],
+            [
+                'name' => 'Platinum Ring',
+                'image' => 'images\platinumring.jpg',
+                'price' => 4650,
+                'description' => 'Ring'
+            ],
+            [
+                'name' => 'Tricolor Bracelet',
+                'image' => 'images\tricolorbracelet.jpg',
+                'price' => 699,
+                'description' => 'Bracelet'
+            ],
+            [
+                'name' => 'Moon Chain',
+                'image' => 'images\moonchain.jpg',
+                'price' => 69,
+                'description' => 'Chain'
             ]
+
         ];
 
         foreach ($products as $key => $value) {

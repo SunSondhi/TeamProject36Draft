@@ -49,9 +49,9 @@
             </div>
             @endforeach
         </div>
+
+        <img src="{{asset('/images/ring1.jpg')}}">
     </div>
-
-
 
     @include('layouts/footer')
 

@@ -22,6 +22,13 @@
 
 
 
+        <div class="main-picture-home">
+            <h1>Jew<span style="color:white;">ellery </span><br>
+            for<br>
+             All</h1>
+        </div>
+
+
         <div class="slideshow-container">
 
             <!-- Full-width images with number and caption text -->
@@ -46,25 +53,25 @@
             <span class="dot" onclick="currentSlide(3)"></span>
         </div>
 
+    </div>
 
-
-        <div class="flex-container">
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
+    <div class="flex-container">
+        <div class="card2" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Something</h5>
-                    <p class="card-text">this and that</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
+        </div>
+        <div class="card2" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Something</h5>
+                <p class="card-text">this and that</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
         </div>
     </div>
+
 
     <div class="flex-container">
         <div class="card2">
@@ -95,13 +102,55 @@
 
     <div class="flex-container">
         <div>
-            <h2>Best Sellers</h2>
+            <h1>Best Sellers</h1>
 
         </div>
     </div>
 
     <div class="flex-container">
-        <div class="card mb-3" style="max-width: 540px;">
+        <div class="card2" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="..." class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card2" style="max-width: 780px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="..." class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card2" style="max-width: 780px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="..." class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card2" style="max-width: 540px;">
             <div class="row g-0">
                 <div class="col-md-4">
                     <img src="..." class="img-fluid rounded-start" alt="...">

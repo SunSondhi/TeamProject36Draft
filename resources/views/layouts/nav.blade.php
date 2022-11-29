@@ -99,28 +99,36 @@
 </div>
 
 <div class="bottom-navbar">
-    <div class="container d-flex flex-wrap justify-content-around">
-        <form class="search" action="">
-            <input class="input" type="search" placeholder="Search here..." required>
-            <button class="button" type="submit">Search</button>
-        </form>
-        <div class="text-end">
-            <?php
-            if (Auth::check() && Auth::user()->role == '1') {
-            ?>
-                <a href="{{ route('admin.adminhome') }}"><button type="button" class="button">Login</button></a>
-                <a href="{{ route('admin.adminhome')}}"><button type="button" class="button">Sign-up</button></a>
+    <div class="container">
+        <div class="row">
+            <form class="search" action="">
+                <input class="input" type="search" placeholder="Search here..." required>
+                <button class="button" type="submit">Search</button>
+            </form>
+            <div class="text-end">
+                <?php
+                if (Auth::check() && Auth::user()->role == '1') {
+                ?>
+                    <a href="{{ route('admin.adminhome') }}"><button type="button" class="button">Login</button></a>
+                    <a href="{{ route('admin.adminhome')}}"><button type="button" class="button">Sign-up</button></a>
 
-            <?php
-            } else {
-            ?>
-                <a href="{{ route('login') }}"><button type="button" class="button">Login</button></a>
-                <a href="{{ route('register') }}"><button type="button" class="button">Sign-up</button></a>
+                <?php
+                } else {
+                ?>
+                    <a href="{{ route('login') }}"><button type="button" class="button">Login</button></a>
+                    <a href="{{ route('register') }}"><button type="button" class="button">Sign-up</button></a>
 
-            <?php
-            }
-            ?>
+                <?php
+                }
+                ?>
 
+            </div>
         </div>
     </div>
+</div>
+<div class="bottom-bottom-navbar">
+    <a href="href=" {{ route('Products') }}"">Rings</a>
+    <a href="{{ route('Products') }}">Necklaces</a>
+    <a href="{{ route('Products') }}">Earrings</a>
+    <a href="{{ route('Products') }}">Charms & Bracelets</a>
 </div>
