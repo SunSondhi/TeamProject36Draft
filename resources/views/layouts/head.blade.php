@@ -24,4 +24,6 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('css/styles.css?v=').time() }}">
 
 
+<link rel="icon" href="{{asset('images/favicon.ico')}}" sizes="32x32" />
+
 <title>HomePage @yield('title')</title>
