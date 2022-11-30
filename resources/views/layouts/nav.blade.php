@@ -127,7 +127,7 @@
     </div>
 </div>
 <div class="bottom-bottom-navbar">
-    <a href="href=" {{ route('Products') }}"">Rings</a>
+    <a href="{{ route('Products') }}">Rings</a>
     <a href="{{ route('Products') }}">Necklaces</a>
     <a href="{{ route('Products') }}">Earrings</a>
     <a href="{{ route('Products') }}">Charms & Bracelets</a>

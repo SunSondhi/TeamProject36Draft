@@ -24,8 +24,8 @@
 
         <div class="main-picture-home">
             <h1>Jew<span style="color:white;">ellery </span><br>
-            for<br>
-             All</h1>
+                for<br>
+                All</h1>
         </div>
 
 
@@ -58,16 +58,16 @@
     <div class="flex-container">
         <div class="card2" style="width: 18rem;">
             <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <h2 class="card-title">Contact Us today</h2>
+                <p class="card-text">for further information you can always contact us</p>
+                <a href="{{ route('Contactus') }}" class="button">Go contact us</a>
             </div>
         </div>
         <div class="card2" style="width: 18rem;">
             <div class="card-body">
-                <h5 class="card-title">Something</h5>
-                <p class="card-text">this and that</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <h2 class="card-title">About Pegasus Jewellery</h2>
+                <p class="card-text">Wanna find out more about us? why don't you check out about us page</p>
+                <a href="{{ route('Aboutus') }}" class="button">Go About us</a>
             </div>
         </div>
     </div>
@@ -111,40 +111,26 @@
         <div class="card2" style="max-width: 540px;">
             <div class="row g-0">
                 <div class="col-md-4">
-                    <img src="..." class="img-fluid rounded-start" alt="...">
+                    <img src="{{asset('images/ring2.jpg')}}" class="img-fluid rounded-start" alt="...">
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-8" style="padding: 2%;">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        <h5 class="card-title">Glitter Ring</h5>
+                        <p class="card-text">Pegasus Jewellery’s Venetias Glitter Ring is a signature piece, testament to the fine craftsmanship and skill of our Jewellers. This flamboyant wide-band cluster ring combines multiple small cut diamonds set on a wide band, with further stones set on a raised square head.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 420 mins ago</small></p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="card2" style="max-width: 780px;">
+        <div class="card2" style="max-width: 540px;">
             <div class="row g-0">
                 <div class="col-md-4">
-                    <img src="..." class="img-fluid rounded-start" alt="...">
+                    <img src="{{asset('images/bracelet1.jpg')}}" class="img-fluid rounded-start" alt="...">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card2" style="max-width: 780px;">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="..." class="img-fluid rounded-start" alt="...">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <h5 class="card-title">Lovers Bracelet</h5>
+                        <p class="card-text">Our stunning sterling silver Tiffany Lovers Bracelet is a subtle yet smart addition to any jewellery collection. Featuring multiple gorgeous small sterling silver links, this bracelet is the perfect accessory to combine traditional materials with modern design and style.</p>
                         <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                     </div>
                 </div>
@@ -153,12 +139,26 @@
         <div class="card2" style="max-width: 540px;">
             <div class="row g-0">
                 <div class="col-md-4">
-                    <img src="..." class="img-fluid rounded-start" alt="...">
+                    <img src="{{asset('images/chain2.jpg')}}" class="img-fluid rounded-start" alt="...">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <h5 class="card-title">Butterfly Chain</h5>
+                        <p class="card-text">A timeless pendant that captures the radiance of a butterfly’s wings, illuminated with exceptional white diamonds, totalling ~0.21 carats. Rich in detail, this fine pendant features a marquise-shaped diamond and delicate openwork craftsmanship which allows natural light to beam through the wings, resulting in a pretty sparkle from all angles.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card2" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="{{asset('images/earrings1.jpg')}}" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">Cerith Earrings</h5>
+                        <p class="card-text">A delightful pair of earrings crafted into shell shaped patterns, with a beautiful floral diamond set at the base of the earring. The earrings are secured with a set of finely cut diamonds at the tip. Our Cerith Earrings are also perfectly versatile, an ideal pair for any occasion, whether it may be for daily wear or to compliment an evening outfit. </p>
                         <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                     </div>
                 </div>
