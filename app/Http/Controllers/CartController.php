@@ -12,7 +12,7 @@ class CartController extends Controller
     public function cartList()
     {
         $cartItems = \Cart::getContent();
-        return view('basket', ['cartItems' => $cartItems]);
+        return view('Basket', ['cartItems' => $cartItems]);
    
     }
 

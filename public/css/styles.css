@@ -93,7 +93,16 @@
 .main-picture-home h1{
   color:black;
   position: absolute;
-  font-size: 300px;
+  font-size: 20em;
+}
+
+@media only screen and (max-width: 600px) {
+  .main-picture-home h1 {
+    color: white;
+    position: absolute;
+    margin-top: 50%;
+    font-size: 5em;
+  }
 }
 
 
