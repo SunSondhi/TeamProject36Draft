@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\ContactMessageController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +19,24 @@ use App\Http\Controllers\CartController;
 */
 
 //all basic pages routes
+//Route::get('/contact',[ContactMessageController::class,'all']);
+
+//Route::get('/contact','ContactMessageController@all');
+
+//Route::get('contact',[ContactMessageController::class , 'index']);
+//Route::get('/contact',[ContactMessageController::class,'index']);
+//Route::get('/contact','App\Http\Controllers\ContactMessageController@index');
+
+Route::post('/contact',[ContactMessageController::class,'contact'])->name('contact.store');
+
+//Route::get('/contact', [
+ //'uses' => 'ContactMessageController@create'
+//]);
+Route::post('/contact', [
+    'uses' => 'ContactMessageController@store',
+    'as' => 'contact.store'
+]);
+
 
 Route::get('/', function () {
     return view("HomePage");
@@ -30,8 +50,12 @@ Route::get('basket', [ProductController::class, 'productList'],function () {
     return view("Basket");
 })->name('Basket');
 
+//Route::get('Contact',[App\Http\Controllers\ContactMessageController::class,'Contact'],function() {
+  //  return view('contact');
+//})->name('contact')
 
-Route::get('HomePage', [ProductController::class, 'productList'])->name('products.list');;
+
+Route::get('HomePage', [ProductController::class, 'productList'])->name('products.list');
 Route::get('cart', [CartController::class, 'cartList'])->name('cart.list');
 Route::post('cart', [CartController::class, 'addToCart'])->name('cart.store');
 Route::post('update-cart', [CartController::class, 'updateCart'])->name('cart.update');
