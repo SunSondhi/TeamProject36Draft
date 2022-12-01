@@ -53,5 +53,13 @@ class Controller extends BaseController
         return view('Products', ['product' => $product]);
     }
 
+
+    public function showAllprevOrd()
+    {
+
+        $orders = DB::table('prev_orders')->get();
+        return view('allorders', ['orders' => $orders]);
+    }
+
    
 }

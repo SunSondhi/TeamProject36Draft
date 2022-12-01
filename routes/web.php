@@ -76,7 +76,11 @@ Route::group([
     'middleware' => 'auth',
     'middleware' => 'isAdmin',
 ], function () {
-    Route::get('adminhome',[App\Http\Controllers\Controller::class, 'search'],[App\Http\Controllers\HomeController::class, 'admin_home'])->name('admin.adminhome')->middleware('isAdmin');
+    Route::get('adminhome',[App\Http\Controllers\Controller::class, 'search'])->name('admin.adminhome')->middleware('isAdmin');
+
+    Route::get('/allorders', [App\Http\Controllers\Controller::class, 'showAllprevOrd'], function () {
+        return view("allorders");
+    })->name('admin.allorders');
 
 
     Route::get('/', function () {
@@ -87,7 +91,7 @@ Route::group([
         return view("Products");
     })->name('admin.Products');
 
-    Route::get('/basket',function () {
+    Route::get('/basket', [CartController::class, 'cartList'],function () {
         return view("Basket");
     })->name('admin.Basket');
 
@@ -106,4 +110,5 @@ Route::group([
     Route::get('/register', function () {
         return view('register');
     })->name('admin.register');
+
 });

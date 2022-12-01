@@ -33,30 +33,32 @@
 
 
 <div class="main-content">
-    <h1>List of all users</h1>
+    <h1>List of all orders</h1>
     <table class="table" id="table">
         <thead>
             <tr>
+                <th>id</th>
                 <th>name</th>
-                <th>email</th>
-                <th>role</th>
+                <th>price</th>
+                <th>description</th>
+                <th>quantity</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($user as $us)
+            @foreach ($orders as $us)
             <tr>
+                <td> {{$us->id}} </td>
                 <td> {{$us->name}} </td>
-                <td> {{$us->email }} </td>
-                <td> {{$us->role }} </td>
+                <td> {{$us->price}} </td>
+                <td> {{$us->description}} </td>
+                <td> {{$us->quantity}} </td>
             </tr>
             @endforeach
         </tbody>
     </table>
 </div>
 
-<div class="card2">
-    <a class="button" href="{{ route('admin.allorders') }}">all orders</a>
-</div>
+
 
 
 @endsection
