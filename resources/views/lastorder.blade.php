@@ -26,8 +26,27 @@
     </div>
 </div>
 
-
-<div class="card2" id="logged-in-butns"><a class="button" href="{{ route('lastorders') }}">go to your orders</a>
+<div class="main-content">
+    <h1>List of your order</h1>
+    <table class="table" id="table">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>price</th>
+                <th>description</th>
+                <th>quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td> {{$lastOrder->name}} </td>
+                <td> {{$lastOrder->price}} </td>
+                <td> {{$lastOrder->description}} </td>
+                <td> {{$lastOrder->quantity}} </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 
 @endsection

@@ -54,7 +54,7 @@
     </table>
 </div>
 
-<div class="card2">
+<div class="card2" id="logged-in-butns">
     <a class="button" href="{{ route('admin.allorders') }}">all orders</a>
 </div>
 

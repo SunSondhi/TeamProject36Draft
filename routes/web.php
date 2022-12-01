@@ -68,7 +68,7 @@ Route::get('register', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+Route::get('/lastorder', [App\Http\Controllers\Controller::class, 'getLastOrder'])->name('lastorders');
 
 Route::group([
     'namespace' => 'admin',

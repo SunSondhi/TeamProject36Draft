@@ -61,5 +61,11 @@ class Controller extends BaseController
         return view('allorders', ['orders' => $orders]);
     }
 
+    public function getLastOrder()
+    {
+        $lastOrder = DB::table('prev_orders')->latest()->first();
+        return view('lastorder', ['lastOrder' => $lastOrder]);
+    }
+
    
 }

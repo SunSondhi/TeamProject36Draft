@@ -43,4 +43,10 @@ class OrderController extends BaseController
 
     }
 
+    public function getLastOrder()
+    {
+        $lastOrder = DB::table('prev_orders')->latest()->first();
+        print_r($lastOrder);
+    }
+
 }

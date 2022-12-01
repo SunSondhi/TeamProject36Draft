@@ -488,3 +488,7 @@ footer li {
     background-color: #fff;
   }
 }
+
+#logged-in-butns{
+  height: 150px;
+}
